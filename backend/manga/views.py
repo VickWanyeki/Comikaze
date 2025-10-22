@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from .models import Series
 from .serializers import SeriesSerializer
+from rest_framework.permissions import IsAuthenticated
 
 
 # Create your views here.
@@ -14,3 +15,4 @@ class SeriesViewSet(viewsets.ReadOnlyModelViewSet):
 
     # This tells the view what serializer to use for translating the data
     serializer_class = SeriesSerializer
+    permission_classes = [IsAuthenticated]
